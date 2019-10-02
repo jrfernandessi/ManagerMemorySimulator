@@ -74,7 +74,7 @@ public class Principal {
                             if(!memoriaPrincipal.get(0).equals(nome)) {
                                 memoriaPrincipal.remove(0);
                                 memoriaPrincipal.add(nome);
-                                System.out.println("Trocando processo " + memoriaPrincipal.get(0) + " por " + nome + " na memoria principal");
+                                System.out.println("Trocando processo " + aux + " por " + nome + " na memoria principal");
                             }else if(memoriaSecundaria.size()<4){
                                 System.out.println("alocando processo " + aux + " na memoria secundaria");
                             }
