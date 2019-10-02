@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
+    static List<String> memoriaPrincipal = new ArrayList<>();
+    static List<String> memoriaSecundaria = new ArrayList<>();
+    static boolean flagPrincipal = false;
+    static boolean flagSecundaria = false;
 
     public static void main (String args[]){
         leituraArquivo("file.txt");
@@ -25,6 +29,7 @@ public class Principal {
                 String nome = "";
                 String op = "";
                 String valor = "";
+
                 stringdaLinha =  line.split(" ");
                 for(int i =0 ;i<stringdaLinha.length;i++) {
 
@@ -58,7 +63,23 @@ public class Principal {
                         if(count==3)
                             count=0;
                     } else if ((op.equals("W") || op.equals("R"))&& count==0) {
-                        System.out.println("alocando processo " + nome + " no endereço " + valor + " na operação de " + op);
+//                        System.out.println("alocando processo " + nome + " no endereço " + valor + " na operação de " + op);
+
+
+                        if(memoriaPrincipal.size()<2){
+                            System.out.println("alocando processo " + nome + " no endereço " + valor + " na operação de " + op+ " na memoria principal");
+                            memoriaPrincipal.add(nome);
+                        }else{
+                            String aux = memoriaPrincipal.get(0);
+                            if(!memoriaPrincipal.get(0).equals(nome)) {
+                                memoriaPrincipal.remove(0);
+                                memoriaPrincipal.add(nome);
+                                System.out.println("Trocando processo " + memoriaPrincipal.get(0) + " por " + nome + " na memoria principal");
+                            }else if(memoriaSecundaria.size()<4){
+                                System.out.println("alocando processo " + aux + " na memoria secundaria");
+                            }
+                        }
+
                         count++;
                         if(count==3)
                             count=0;
