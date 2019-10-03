@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ae0a6f6-7f3c-4e9c-8d8d-f90e66cac2f4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Principal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Processo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Process.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Frame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Frame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Frame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -93,6 +91,15 @@
                 <element signature="e#798#799#0" expanded="true" />
                 <element signature="e#836#837#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -122,13 +129,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/file.txt" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Principal.java" />
         <option value="$PROJECT_DIR$/src/Processo.java" />
         <option value="$PROJECT_DIR$/src/Proccess.java" />
         <option value="$PROJECT_DIR$/src/Process.java" />
         <option value="$PROJECT_DIR$/src/Page.java" />
         <option value="$PROJECT_DIR$/src/Frame.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -266,12 +273,12 @@
       <updated>1569983768956</updated>
       <workItem from="1569983773584" duration="2457000" />
       <workItem from="1570013188704" duration="8172000" />
-      <workItem from="1570027668233" duration="3873000" />
+      <workItem from="1570027668233" duration="3935000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14502000" />
+    <option name="totallyTimeSpent" value="14564000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1920" height="1057" extended-state="6" />
@@ -290,7 +297,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1875" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960325" />
       <window_info id="Learn" order="2" />
@@ -410,13 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Principal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -499,6 +499,13 @@
             <element signature="e#798#799#0" expanded="true" />
             <element signature="e#836#837#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
         </state>
       </provider>
     </entry>
