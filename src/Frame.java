@@ -6,12 +6,14 @@ public class Frame {
     private int size;
     private int address;
     private Process process;
+    private int pageAddress;
 
-    public Frame(List<Integer> instructionList, int size, int address, Process process) {
+    public Frame(List<Integer> instructionList, int size, int address, Process process, int pageAddress) {
         this.instructionList = instructionList;
         this.size = size;
         this.address = address;
         this.process = process;
+        this.pageAddress = pageAddress;
     }
 
     public List<Integer> getInstructionList() {
@@ -44,5 +46,13 @@ public class Frame {
 
     public void setProcess(Process process) {
         this.process = process;
+    }
+
+    public int getPageAddress() {
+        return pageAddress;
+    }
+
+    public void setPageAddress(int pageAddress) {
+        this.pageAddress = pageAddress;
     }
 }
