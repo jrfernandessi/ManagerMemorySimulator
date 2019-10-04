@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Principal {
+public class Main {
     static List<String> memoriaPrincipal = new ArrayList<>();
     static List<String> memoriaSecundaria = new ArrayList<>();
     static boolean flagPrincipal = false;
