@@ -24,3 +24,5 @@ hs_err_pid*
 
 .idea/worspace.xml
 .idea/uiDesigner.xml
+
+/out/
