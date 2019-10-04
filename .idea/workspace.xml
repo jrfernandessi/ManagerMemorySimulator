@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ae0a6f6-7f3c-4e9c-8d8d-f90e66cac2f4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ManagerMemorySimulator/Processo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,14 +98,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Principal.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Principal.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Principal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="77" column="62" lean-forward="true" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="62" />
+            <state relative-caret-position="148">
+              <caret line="25" column="31" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -140,11 +146,11 @@
         <option value="$PROJECT_DIR$/src/Processo.java" />
         <option value="$PROJECT_DIR$/src/Proccess.java" />
         <option value="$PROJECT_DIR$/src/Process.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Page.java" />
         <option value="$PROJECT_DIR$/src/Frame.java" />
         <option value="$PROJECT_DIR$/file.txt" />
         <option value="$PROJECT_DIR$/src/Principal.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -281,12 +287,12 @@
       <updated>1569983768956</updated>
       <workItem from="1569983773584" duration="2457000" />
       <workItem from="1570013188704" duration="8172000" />
-      <workItem from="1570027668233" duration="11877000" />
+      <workItem from="1570027668233" duration="12085000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22506000" />
+    <option name="totallyTimeSpent" value="22714000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="827" extended-state="6" />
@@ -301,12 +307,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32802126" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32802126" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960325" />
       <window_info id="Learn" order="2" />
@@ -314,7 +320,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997344" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997344" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -426,13 +432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Page.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -520,11 +519,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Principal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="77" column="62" lean-forward="true" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="62" />
+        <state relative-caret-position="148">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
         </state>
       </provider>
     </entry>
