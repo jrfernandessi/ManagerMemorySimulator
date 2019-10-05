@@ -53,8 +53,8 @@ public class Main {
                 int count = 0;
                 int pageId = 0;
                 //create process
-                for(int i =0 ;i<stringdaLinha.length;i++) {
-                    if (op.equals("C") && count==0) {
+                for(int i =0 ;i<stringdaLinha.length;i+=3) {
+                    if (op.equals("C")) {
                         System.out.println("criando processo " + nome);
                         Process process = new Process();
 //                        process.setSize(Integer.parseInt(valor));
@@ -105,7 +105,9 @@ public class Main {
 
 
                         }else{
-                            System.out.println("precisa fazer swap");
+                            Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
+                            Frame frame = mainMemory.get(0);
+                            FIFO(page, frame);
                         }
                     }
 
@@ -162,6 +164,16 @@ public class Main {
             }
         }
         return false;
+    }
+
+    public static void FIFO(Page page, Frame frame){
+        System.out.println("fazendo swap entre o processo "+frame.getProcess().getName() + " e o processo " + page.getProcess().getName());
+        Page newPage = new Page(frame.getInstructionList(), frame.getSize(),frame.getAddress(), frame.getProcess());
+        frame.setInstructionList(page.getInstructionList());
+        frame.setPageAddress(page.getAddress());
+        frame.setProcess(page.getProcess());
+        frame.setInstructionList(page.getInstructionList());
+        page = newPage;
     }
 
 
