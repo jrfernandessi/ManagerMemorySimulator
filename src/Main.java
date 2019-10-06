@@ -25,6 +25,7 @@ public class Main {
         int size = read.nextInt();
         int sizeMemory = 2*size;
         List<Process> processList= new ArrayList<>();
+        int pageId = 0;
         try {
             in = new Scanner(new FileReader("file.txt"));
             while (in.hasNextLine()) {
@@ -51,7 +52,7 @@ public class Main {
                     }
                 }
                 int count = 0;
-                int pageId = 0;
+
                 //create process
                 for(int i =0 ;i<stringdaLinha.length;i+=3) {
                     if (op.equals("C")) {
@@ -107,7 +108,14 @@ public class Main {
                         }else{
                             Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
                             Frame frame = mainMemory.get(0);
-                            FIFO(page, frame);
+                            if(!page.getProcess().getName().equals(frame.getProcess().getName()))
+                                FIFO(page, frame);
+                            else{
+                                System.out.println("executando o processo " + frame.getProcess().getName() +
+                                        " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
+                                int c = frame.getProcess().getCount();
+                                frame.getProcess().setCount(c + 1);
+                            }
                         }
                     }
 
@@ -167,13 +175,17 @@ public class Main {
     }
 
     public static void FIFO(Page page, Frame frame){
-        System.out.println("fazendo swap entre o processo "+frame.getProcess().getName() + " e o processo " + page.getProcess().getName());
-        Page newPage = new Page(frame.getInstructionList(), frame.getSize(),frame.getAddress(), frame.getProcess());
-        frame.setInstructionList(page.getInstructionList());
-        frame.setPageAddress(page.getAddress());
-        frame.setProcess(page.getProcess());
-        frame.setInstructionList(page.getInstructionList());
-        page = newPage;
+
+            System.out.println("fazendo swap entre o processo " + frame.getProcess().getName() + " e o processo " + page.getProcess().getName());
+            Page newPage = new Page(frame.getInstructionList(), frame.getSize(), frame.getAddress(), frame.getProcess());
+            frame.setInstructionList(page.getInstructionList());
+            frame.setPageAddress(page.getAddress());
+            frame.setProcess(page.getProcess());
+            frame.setInstructionList(page.getInstructionList());
+            page = newPage;
+            mainMemory.add(frame);
+            secondaryMemory.add(page);
+
     }
 
 
