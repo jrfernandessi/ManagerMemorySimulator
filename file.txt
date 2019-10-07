@@ -16,7 +16,6 @@ P1 R 8
 P1 R 9
 P1 R 10
 P1 W 11
-P7 C 4
 P7 R 5
 P7 R 6
 P7 R 7
