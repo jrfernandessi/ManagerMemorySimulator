@@ -8,7 +8,7 @@ public class Main {
 
     static List<Page> secondaryMemory = new ArrayList<>();
     static List<Frame> mainMemory = new ArrayList<>();
-
+    static Memory memory;
 
     public static void main(String args[]) {
         Scanner in;
@@ -19,6 +19,7 @@ public class Main {
         System.out.println("digite o tamanho da página/frame");
         int size = read.nextInt();
         int sizeMemory = 2*size;
+        memory = new Memory(2*size);
         int pageId = 0;
         try {
             in = new Scanner(new FileReader("file.txt"));
@@ -164,6 +165,10 @@ public class Main {
             page = newPage;
             mainMemory.add(frame);
             secondaryMemory.add(page);
+
+    }
+
+    public static void LRU(Page page, Frame frame){
 
     }
 
