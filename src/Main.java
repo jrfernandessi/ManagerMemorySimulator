@@ -129,7 +129,7 @@ public class Main {
                                 pageId++;
                             }
                         } else if ((op.equals("W") || op.equals("R"))) {
-                            if ((mainMemory.size() * size) < sizeMemory || verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
+                            if ((memory.getMainMemory().size() * size) < sizeMemory || verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
                                 int c = 0;
                                 if (!verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
                                     Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
