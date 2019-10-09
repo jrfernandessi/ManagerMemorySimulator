@@ -51,4 +51,8 @@ public class Memory {
         }
         return smaller;
     }
+
+    public void add(int index, Frame frame){
+        mainMemory.set(index, frame);
+    }
 }

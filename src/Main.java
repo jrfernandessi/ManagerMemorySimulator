@@ -18,6 +18,8 @@ public class Main {
         int contador=0;
         System.out.println("digite o tamanho da página/frame");
         int size = read.nextInt();
+        System.out.println("1 para usar o FIFO e 2 para usar o LRU");
+        int option = read.nextInt();
         int sizeMemory = 2*size;
         memory = new Memory(2*size);
         int pageId = 0;
@@ -47,60 +49,125 @@ public class Main {
                 }
 
                 //create process
-                for(int i =0 ;i<stringdaLinha.length;i+=3) {
-                    if (op.equals("C")) {
-                        System.out.println("criando processo " + nome);
-                        Process process = new Process();
-                        process.setName(nome);
-                        process.setSize(Integer.parseInt(valor));
-                        for(int j=0;j<process.getSize();j+=size){
-                            List<Integer> instructionList = new ArrayList<>();
-                            int flag = j+size;
-                            int k = j;
-                            while(k<flag){
-                                instructionList.add(k);
-                                k++;
+                if(option==1) {
+
+                    for (int i = 0; i < stringdaLinha.length; i += 3) {
+                        if (op.equals("C")) {
+                            System.out.println("criando processo " + nome);
+                            Process process = new Process();
+                            process.setName(nome);
+                            process.setSize(Integer.parseInt(valor));
+                            for (int j = 0; j < process.getSize(); j += size) {
+                                List<Integer> instructionList = new ArrayList<>();
+                                int flag = j + size;
+                                int k = j;
+                                while (k < flag) {
+                                    instructionList.add(k);
+                                    k++;
+                                }
+                                Page page = new Page(instructionList, size, pageId, process);
+                                secondaryMemory.add(page);
+                                pageId++;
                             }
-                            Page page = new Page(instructionList, size, pageId, process);
-                            secondaryMemory.add(page);
-                            pageId++;
-                        }
-                    }else if ((op.equals("W") || op.equals("R"))){
-                        if(mainMemory.size()*size<sizeMemory){
-                            int c = 0;
-                            if(!verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
+                        } else if ((op.equals("W") || op.equals("R"))) {
+                            if (mainMemory.size() * size < sizeMemory) {
+                                int c = 0;
+                                if (!verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
+                                    Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
+                                    Frame frame = new Frame(page.getInstructionList(), page.getSize(), mainMemory.size(), page.getProcess(), page.getAddress());
+                                    mainMemory.add(frame);
+                                    System.out.println("adicionando o processo " + frame.getProcess().getName() +
+                                            " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
+                                    System.out.println("executando o processo " + frame.getProcess().getName() +
+                                            " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
+                                    c = frame.getProcess().getCount();
+                                    frame.getProcess().setCount(c + 1);
+                                } else {
+                                    Frame frame = getProcessOfMainMemory(nome, Integer.parseInt(valor));
+                                    System.out.println("executando o processo " + frame.getProcess().getName() +
+                                            " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
+                                    c = frame.getProcess().getCount();
+                                    frame.getProcess().setCount(c + 1);
+                                }
+
+
+                            } else {
                                 Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
-                                Frame frame = new Frame(page.getInstructionList(), page.getSize(), mainMemory.size(), page.getProcess(), page.getAddress());
-                                mainMemory.add(frame);
-                                System.out.println("adicionando o processo " + frame.getProcess().getName() +
-                                        " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
-                                System.out.println("executando o processo " + frame.getProcess().getName() +
-                                        " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
-                                c = frame.getProcess().getCount();
-                                frame.getProcess().setCount(c + 1);
-                            }else{
-                                Frame frame = getProcessOfMainMemory(nome, Integer.parseInt(valor));
-                                System.out.println("executando o processo " + frame.getProcess().getName() +
-                                        " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
-                                c = frame.getProcess().getCount();
-                                frame.getProcess().setCount(c + 1);
-                            }
-
-
-                        }else{
-                            Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
-                            Frame frame = mainMemory.get(0);
-                            if(!page.getProcess().getName().equals(frame.getProcess().getName()))
-                                FIFO(page, frame);
-                            else{
-                                System.out.println("executando o processo " + frame.getProcess().getName() +
-                                        " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
-                                int c = frame.getProcess().getCount();
-                                frame.getProcess().setCount(c + 1);
+                                Frame frame = mainMemory.get(0);
+                                if (!page.getProcess().getName().equals(frame.getProcess().getName()))
+                                    FIFO(page, frame);
+                                else {
+                                    System.out.println("executando o processo " + frame.getProcess().getName() +
+                                            " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
+                                    int c = frame.getProcess().getCount();
+                                    frame.getProcess().setCount(c + 1);
+                                }
                             }
                         }
-                    }
 
+                    }
+                }else if(option==2){
+                    for (int i = 0; i < stringdaLinha.length; i += 3) {
+                        if (op.equals("C")) {
+                            System.out.println("criando processo " + nome);
+                            Process process = new Process();
+                            process.setName(nome);
+                            process.setSize(Integer.parseInt(valor));
+                            for (int j = 0; j < process.getSize(); j += size) {
+                                List<Integer> instructionList = new ArrayList<>();
+                                int flag = j + size;
+                                int k = j;
+                                while (k < flag) {
+                                    instructionList.add(k);
+                                    k++;
+                                }
+                                Page page = new Page(instructionList, size, pageId, process);
+                                secondaryMemory.add(page);
+                                pageId++;
+                            }
+                        } else if ((op.equals("W") || op.equals("R"))) {
+                            if (memory.getMainMemory().size() * size < sizeMemory) {
+                                int c = 0;
+                                if (!verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
+                                    Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
+                                    Frame frame = new Frame(page.getInstructionList(), page.getSize(), memory.getMainMemory().size(), page.getProcess(), page.getAddress());
+//                                    mainMemory.add(frame);
+                                    memory.add(frame);
+                                    System.out.println("adicionando o processo " + frame.getProcess().getName() +
+                                            " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
+                                    System.out.println("executando o processo " + frame.getProcess().getName() +
+                                            " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
+                                    c = frame.getProcess().getCount();
+                                    frame.getProcess().setCount(c + 1);
+                                } else {
+                                    Frame frame = getProcessOfMainMemory(nome, Integer.parseInt(valor));
+                                    System.out.println("executando o processo " + frame.getProcess().getName() +
+                                            " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
+                                    c = frame.getProcess().getCount();
+                                    frame.getProcess().setCount(c + 1);
+                                }
+
+
+                            } else {
+                                Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
+                                int index = memory.leastAccessed();
+                                Frame frame = memory.getMainMemory().get(index);
+                                if (!page.getProcess().getName().equals(frame.getProcess().getName())){
+                                    int c = memory.getAccess().get(index);
+                                    LRU(page, frame, index);
+                                    memory.getAccess().set(index, c+1);
+                                }
+
+                                else {
+                                    System.out.println("executando o processo " + frame.getProcess().getName() +
+                                            " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
+                                    int c = frame.getProcess().getCount();
+                                    frame.getProcess().setCount(c + 1);
+                                }
+                            }
+                        }
+
+                    }
                 }
             }
             System.out.println(secondaryMemory.size());
@@ -168,8 +235,16 @@ public class Main {
 
     }
 
-    public static void LRU(Page page, Frame frame){
-
+    public static void LRU(Page page, Frame frame, int index){
+        System.out.println("fazendo swap entre o processo " + frame.getProcess().getName() + " e o processo " + page.getProcess().getName());
+        Page newPage = new Page(frame.getInstructionList(), frame.getSize(), frame.getAddress(), frame.getProcess());
+        frame.setInstructionList(page.getInstructionList());
+        frame.setPageAddress(page.getAddress());
+        frame.setProcess(page.getProcess());
+        frame.setInstructionList(page.getInstructionList());
+        page = newPage;
+        memory.add(index, frame);
+        secondaryMemory.add(page);
     }
 
 
