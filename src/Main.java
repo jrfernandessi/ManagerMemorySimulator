@@ -118,6 +118,7 @@ public class Main {
 								Frame frame = mainMemory.get(0);
 								if (!page.getProcess().getName().equals(frame.getProcess().getName())) {
 									FIFO(page, frame);
+									i--;
 								}
 								else {
 									System.out.println("executando o processo " + frame.getProcess().getName() +
@@ -198,6 +199,7 @@ public class Main {
 								if (!page.getProcess().getName().equals(frame.getProcess().getName())){
 									int c = memory.getAccess().get(index);
 									LRU(page, frame, index);
+									i--;
 									memory.getAccess().set(index, c+1);
 								}
 
