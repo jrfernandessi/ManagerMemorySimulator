@@ -1,3 +1,5 @@
+import com.apple.laf.AquaInternalFrameManager;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -8,9 +10,8 @@ public class Main {
 
     static List<Page> secondaryMemory = new ArrayList<>();
     static List<Frame> mainMemory = new ArrayList<>();
+    static List<Process> processList = new ArrayList<>();
     static Memory memory;
-    static int total;
-    static int qtdSwap;
 
     public static void main(String args[]) {
         Scanner in;
@@ -26,7 +27,7 @@ public class Main {
         memory = new Memory(2*size);
         int pageId = 0;
         try {
-            in = new Scanner(new FileReader("file.txt"));
+            in = new Scanner(new FileReader("file2.txt"));
             while (in.hasNextLine()) {
                 col++;
                 String line = in.nextLine();
@@ -36,7 +37,6 @@ public class Main {
 
                 stringdaLinha =  line.split(" ");
                 for(int i =0 ;i<stringdaLinha.length;i++) {
-                    total++;
                     if (!stringdaLinha[i].equals("")) {
                         contador++;
                         if(contador%3==1) {
@@ -98,7 +98,6 @@ public class Main {
                                 Frame frame = mainMemory.get(0);
                                 if (!page.getProcess().getName().equals(frame.getProcess().getName())) {
                                     FIFO(page, frame);
-                                    qtdSwap++;
                                 }
                                 else {
                                     System.out.println("executando o processo " + frame.getProcess().getName() +
@@ -160,7 +159,6 @@ public class Main {
                                     int c = memory.getAccess().get(index);
                                     LRU(page, frame, index);
                                     memory.getAccess().set(index, c+1);
-                                    qtdSwap++;
                                 }
 
                                 else {
@@ -180,7 +178,6 @@ public class Main {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println(100*qtdSwap/total);
     }
 
     private static Frame getProcessOfMainMemory(String name, int instruction) {
@@ -253,5 +250,19 @@ public class Main {
         secondaryMemory.add(page);
     }
 
+    public static void printProcessInHardDisk(){
+        for (Page page: secondaryMemory){
+
+        }
+    }
+
+    public static  boolean verifyProcess(Process process){
+        for(Process aux: processList){
+            if(aux.equals(process)){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
