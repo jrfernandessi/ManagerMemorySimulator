@@ -9,6 +9,8 @@ public class Main {
     static List<Page> secondaryMemory = new ArrayList<>();
     static List<Frame> mainMemory = new ArrayList<>();
     static Memory memory;
+    static int total;
+    static int qtdSwap;
 
     public static void main(String args[]) {
         Scanner in;
@@ -34,7 +36,7 @@ public class Main {
 
                 stringdaLinha =  line.split(" ");
                 for(int i =0 ;i<stringdaLinha.length;i++) {
-
+                    total++;
                     if (!stringdaLinha[i].equals("")) {
                         contador++;
                         if(contador%3==1) {
@@ -94,8 +96,10 @@ public class Main {
                             } else {
                                 Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
                                 Frame frame = mainMemory.get(0);
-                                if (!page.getProcess().getName().equals(frame.getProcess().getName()))
+                                if (!page.getProcess().getName().equals(frame.getProcess().getName())) {
                                     FIFO(page, frame);
+                                    qtdSwap++;
+                                }
                                 else {
                                     System.out.println("executando o processo " + frame.getProcess().getName() +
                                             " na memória principal com a operação de " + op + " endereco " + frame.getProcess().getCount());
@@ -156,6 +160,7 @@ public class Main {
                                     int c = memory.getAccess().get(index);
                                     LRU(page, frame, index);
                                     memory.getAccess().set(index, c+1);
+                                    qtdSwap++;
                                 }
 
                                 else {
@@ -170,11 +175,12 @@ public class Main {
                     }
                 }
             }
-            
+
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        System.out.println(100*qtdSwap/total);
     }
 
     private static Frame getProcessOfMainMemory(String name, int instruction) {
