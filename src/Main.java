@@ -27,7 +27,7 @@ public class Main {
         memory = new Memory(2*size);
         int pageId = 0;
         try {
-            in = new Scanner(new FileReader("file.txt"));
+            in = new Scanner(new FileReader("file2.txt"));
             while (in.hasNextLine()) {
                 col++;
                 String line = in.nextLine();
@@ -72,7 +72,7 @@ public class Main {
                                 pageId++;
                             }
                         } else if ((op.equals("W") || op.equals("R"))) {
-                            if ((mainMemory.size() * size) <= sizeMemory) {
+                            if ((mainMemory.size() * size) < sizeMemory || verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
                                 int c = 0;
                                 if (!verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
                                     Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
@@ -129,7 +129,7 @@ public class Main {
                                 pageId++;
                             }
                         } else if ((op.equals("W") || op.equals("R"))) {
-                            if (memory.getMainMemory().size() * size <= sizeMemory) {
+                            if ((mainMemory.size() * size) < sizeMemory || verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
                                 int c = 0;
                                 if (!verifyProcessInMainMemory(nome, Integer.parseInt(valor))) {
                                     Page page = getProcessOfSecondaryMemory(nome, Integer.parseInt(valor));
