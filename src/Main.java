@@ -271,8 +271,11 @@ public class Main {
 
 	public static void FIFO(Page page, Frame frame){
 
-		System.out.println("fazendo swap entre o processo " + frame.getProcess().getName() + " e o processo " + page.getProcess().getName());
-		Page newPage = new Page(frame.getInstructionList(), frame.getSize(), frame.getAddress(), frame.getProcess());
+		System.out.println("fazendo swap entre o processo " 
+		+ frame.getProcess().getName() + " e o processo " + page.getProcess().getName());
+		Page newPage = new Page(frame.getInstructionList(),
+				frame.getSize(), frame.getAddress(), frame.getProcess());
+		mainMemory.remove(0);
 		frame.setInstructionList(page.getInstructionList());
 		frame.setPageAddress(page.getAddress());
 		frame.setProcess(page.getProcess());
