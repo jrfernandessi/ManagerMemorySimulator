@@ -170,7 +170,7 @@ public class Main {
                     }
                 }
             }
-            System.out.println(secondaryMemory.size());
+            
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
