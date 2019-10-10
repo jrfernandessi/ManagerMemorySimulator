@@ -21,9 +21,11 @@ public class Main {
 		int contador=0;
 		System.out.println("digite o tamanho da página/frame");
 		int size = read.nextInt();
+		System.out.println("digite o tamanho da memória");
+		int memorySize = read.nextInt();
 		System.out.println("1 para usar o FIFO e 2 para usar o LRU");
 		int option = read.nextInt();
-		int sizeMemory = 2*size;
+		int sizeMemory = memorySize*size;
 		memory = new Memory(2*size);
 		int pageId = 0;
 		try {
