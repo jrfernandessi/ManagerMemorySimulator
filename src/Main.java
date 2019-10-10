@@ -12,6 +12,7 @@ public class Main {
 	static List<Frame> mainMemory = new ArrayList<>();
 	static List<Process> processList = new ArrayList<>();
 	static Memory memory;
+	static int countSwap = 0;
 
 	public static void main(String args[]) {
 		Scanner in;
@@ -120,6 +121,7 @@ public class Main {
 								Frame frame = mainMemory.get(0);
 								if (!page.getProcess().getName().equals(frame.getProcess().getName())) {
 									FIFO(page, frame);
+									countSwap++;
 									i--;
 								}
 								else {
@@ -201,6 +203,7 @@ public class Main {
 								if (!page.getProcess().getName().equals(frame.getProcess().getName())){
 									int c = memory.getAccess().get(index);
 									LRU(page, frame, index);
+									countSwap++;
 									i--;
 									memory.getAccess().set(index, c+1);
 								}
@@ -227,6 +230,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(countSwap);
 	}
 
 	private static Frame getProcessOfMainMemory(String name, int instruction) {
